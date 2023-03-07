@@ -1,0 +1,84 @@
+
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wycieczki i urlopy</title>
+    <link rel="stylesheet" href="styl8.css">
+</head>
+<body>
+<div id="baner">
+    <h1>biuro podrozy</h1>
+</div>
+<div id="lewy">
+        <h2>KONTAKT</h2><br />
+        <a href="biuro@wycieczki.pl">napisz do nas</a><br />
+        <p>telefon:555666777</p>
+</div>
+<div id="srodkowy">id
+        <h2>galeria</h2>
+
+</div>
+<div id="prawy">
+        <h2>PROMOCJE</h2><br />
+        <table>
+            <tr>
+                <td>jesien</td><td>grupa4+</td><td>grupa10+</td>
+            </tr>
+            <tr>
+                <td>5%</td><td>10%</td><td>15%</td>
+            </tr>
+    </table>
+</div>
+<div id="dane">
+    <h2>MOJ TATA JEST SUPER
+    </h2>
+
+</div>
+<div id="stopka">
+        <p>strone wykonal</p>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<?php
+    $conn = mysqli_connect('localhost','root','','egzamin3');
+        $sql = "select nazwapliku,podpis from zdjecia order by podpis;";
+        $result = mysqli_query($conn,$sql);
+echo<<<END
+        <img src="1.jpg" alt="1">
+        <img src="2.jpg" alt="2">
+        <img src="3.jpg" alt="3"><br />
+        <img src="4.jpg" alt="4">
+        <img src="5.jpg" alt="5">
+        <img src="6.jpg" alt="6"><br />
+        <img src="7.jpg" alt="7">
+        <img src="8.jpg" alt="8">
+        <img src="9.jpg" alt="9">
+END;
+    mysqli_close($conn);
+    ?>
+
+
+<?php
+        $id = "id";
+            $conn = mysqli_connect('localhost','root','','egzamin3');
+                $qr = "select $id,dataWyjazdu,cel,cena from wycieczki where dostepna='1';";
+                $wynik = mysqli_query($conn,$qr);
+                while($row = mysqli_fetch_row($wynik))
+                {
+                    echo "$row[0]. $row[1], $row[2], cena: $row[3]<br/>";
+                }
+            mysqli_close($conn);
+        ?>
